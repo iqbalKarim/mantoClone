@@ -1,0 +1,14 @@
+.slide{
+    /* width: 150px !important;  */
+}
+.sliderContainer{
+    width: 100%;
+}
+.catName{
+    margin-top: 10px;
+    line-height: 18px;
+    font-size: 12px;   
+    text-align: center;
+    font-weight: 400;
+    text-transform: uppercase;
+}

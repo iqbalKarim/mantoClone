@@ -1,0 +1,77 @@
+.topNews{
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+
+.slideshow{
+    position: relative;
+    height: 96vh;
+}
+
+.slideshowImage{
+    object-fit: cover;
+    height: 100%;
+}
+
+.slideshowOverlay{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,0.65) 0%, transparent 100%);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+
+    padding-bottom: 100px;
+    color: white;
+}
+
+.slideDescription { 
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 12px;
+    font-weight: 500;
+    margin: 0px;
+}
+.slideTitle{
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 22px;
+    margin: 20px 0 50px;
+}
+
+.categoriesRow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 30px 50px 30px; 
+}
+.categoriesRowHeading{
+    width: 25%;
+    flex-shrink: 0;
+}
+.categoriesSlides{
+    width: 75%;
+}
+.essentials{ 
+    letter-spacing: 2px;
+    font-size: 12px;
+    text-align: center;
+}
+.shopByCategory{ 
+    letter-spacing: 4px;
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+}
