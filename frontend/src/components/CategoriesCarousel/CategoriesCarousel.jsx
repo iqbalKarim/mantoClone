@@ -1,7 +1,10 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import useEmblaCarousel from "embla-carousel-react"
 import styles from "./CategoriesCarousel.module.css"
 import Slider from "react-slick"
+import { imageUrlConstructor } from "../../helpers/imageUrlConstructor"
+import { getImageFromFirebase } from "../../../firebaseConfig"
+import LoadingIndicator from "@components/LoadingIndicator/LoadingIndicator"
 
 const slidesInfo = [
   { image: "./cat8.jpeg", name: "Scarves, Stoles & Odhnis" },
@@ -17,22 +20,39 @@ const slidesInfo = [
 ]
 
 const CategoriesCarousel = () => {
+  const [isLoading, setIsLoading] = useState(false)
+  useEffect(() => {
+    const images = slidesInfo.map((s) => s.image.slice(2))
+    setIsLoading(true)
+    imageUrlConstructor(images)
+      .then((res) => res.map((img, index) => (slidesInfo[index]["imageUrl"] = img)))
+      .finally(() => {
+        setIsLoading(false)
+      })
+  }, [])
+
   const settings = {
     speed: 500,
-    slidesToShow: 6,
+    infinite: true,
+    slidesToShow: 7,
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    lazyLoad: true,
   }
 
   return (
     <div className={styles.sliderContainer}>
-      <Slider {...settings}>
-        {slidesInfo.map((slideInfo, index) => (
-          <div key={index} className={styles.slide}>
-            <img src={slideInfo.image} width={"100%"} />
-            <div className={styles.catName}>{slideInfo.name}</div>
-          </div>
-        ))}
-      </Slider>
+      <LoadingIndicator loading={isLoading}>
+        <Slider {...settings}>
+          {slidesInfo.map((slideInfo, index) => (
+            <div key={index} className={styles.slide}>
+              <img src={slideInfo.imageUrl} width={"100%"} />
+              <div className={styles.catName}>{slideInfo.name}</div>
+            </div>
+          ))}
+        </Slider>
+      </LoadingIndicator>
     </div>
   )
 }
