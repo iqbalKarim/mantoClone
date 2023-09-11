@@ -10,6 +10,8 @@ import LoadingIndicator from "@components/LoadingIndicator/LoadingIndicator"
 import BestsellerTabs from "@components/BestsellerTabs/BestsellerTabs"
 import { East } from "@mui/icons-material"
 import CategoryCard from "@components/CategoryCard/CategoryCard"
+import HighlightsSection from "@sections/HighlightsSection/HighlightsSection"
+import OutfitsSection from "@sections/OutfitsSection/OutfitsSection"
 
 const cardCategories = [
   {
@@ -82,6 +84,12 @@ const Home = () => {
           <CategoryCard {...cat} />
         ))}
       </section>
+
+      <HighlightsSection />
+
+      <div style={{ margin: "100px 0", background: "#ccc", height: 2 }} />
+      <OutfitsSection />
+      <div style={{ margin: "100px 0", background: "#ccc", height: 2 }} />
     </div>
   )
 }

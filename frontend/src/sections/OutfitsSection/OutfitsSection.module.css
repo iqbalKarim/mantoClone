@@ -1,0 +1,200 @@
+.outfitSectionContainer{
+    text-align: center;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0 50px;
+}
+
+.outfitSectionContainer h2{
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+.outfitSectionContainer h5{
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.outfitsSlider{
+    height: 70vh;
+    overflow: hidden;
+    display: flex;
+    box-sizing: content-box;
+}
+
+.outfitSlide{
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1000px;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+}
+
+.heroImage{
+    width: 50%;
+    /* margin: 5px; */
+}
+.heroImage img{
+    width: 100%;
+    object-fit: contain;
+}
+
+
+.content{
+    width: 50%;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.productCard{
+    height: 80%;
+}
+
+.heroImage img{
+    height: 100%;
+}
+
+.productContainer{ 
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    
+}
+.imageContainer{ 
+    height: 90%; 
+    width: fit-content;
+    margin: 0 auto;
+    position: relative;
+}
+.imageContainer img{
+    height: 100%;
+}
+
+
+.productName{
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    margin: 20px 0 5px 0;
+}
+.productPrice{
+    color: rgb(106, 106, 106);
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    margin: 0;
+}
+.cartContainer{
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: aliceblue;
+    right: 10px;
+    bottom: 10px;
+    cursor: pointer;
+}
+.cartContainer:hover{
+    animation: pulse 0.8s ease-in-out 0s infinite normal forwards;
+}
+@keyframes pulse {
+    from{
+        box-shadow: 0px 0px 0px 0px rgba(0,0,0, 0.62);
+        -webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.62);
+        -moz-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.62);
+    }
+    to{
+        box-shadow: 0px 0px 0px 12px rgba(0,0,0,0.0);
+        -webkit-box-shadow: 0px 0px 0px 12px rgba(0,0,0,0.0);
+        -moz-box-shadow: 0px 0px 0px 12px rgba(0,0,0,0.0);
+    }
+}
+
+.arrowBtn{
+    background-color: white;
+    font-size: 15px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+    position: absolute;
+    overflow: hidden;
+}
+.arrowBtn:first-of-type{
+    top: 50%;
+    left: 0;
+    z-index: 1;
+}
+.arrowBtn:last-of-type{
+    right: 0;
+    top: 50%;
+}
+.arrowRight, .arrowLeft{
+    position: relative;
+}
+.arrowBtn:hover .arrowRight{
+    animation: goRight 0.8s ease-in-out 0s 1 normal forwards;
+}
+
+.arrowBtn:hover .arrowLeft{
+    animation: goLeft 0.8s ease-in-out 0s 1 normal forwards;
+}
+@keyframes goLeft {
+    0%{
+        right: 0px;
+    }
+    45%{
+        right: 50px
+    }
+    46%{
+        display: none;
+    }
+    54%{
+        display: none;
+    }
+    55%{
+        display: block;
+        right: -50px;
+    }
+    100%{
+        right: 0px;
+    }
+}
+@keyframes goRight {
+    0%{
+        left: 0px;
+    }
+    45%{
+        left: 50px
+    }
+    46%{
+        display: none;
+    }
+    54%{
+        display: none;
+    }
+    55%{
+        display: block;
+        left: -50px;
+    }
+    100%{
+        left: 0px;
+    }
+}

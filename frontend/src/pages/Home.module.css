@@ -79,6 +79,14 @@
 .bestSellersSection{
     text-align: center;
 }
+.bestSellersSection h4{
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 0px;
+    color: rgb(28, 27, 27);
+}
 
 .categoriesSection{
     padding: 30px;
