@@ -1,10 +1,10 @@
 import CustomButton from "@components/CustomButton/CustomButton"
 import styles from "./CategoryCard.module.css"
 
-const CategoryCard = ({ image, name, subtitle }) => {
+const CategoryCard = ({ image, name, subtitle, imageUrl }) => {
   return (
     <div className={styles.container}>
-      <img src={image} />
+      <img src={imageUrl} />
 
       <div className={styles.overlay} />
 

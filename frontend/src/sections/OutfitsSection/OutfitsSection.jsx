@@ -121,10 +121,11 @@ const OutfitsSection = () => {
                     </CustomButton>
                     {outfit.parts.map((p, index) => {
                       if (index == activePart) {
-                        return <Lens fontSize='xsmall' style={{ color: "#999", margin: "0 5px" }} />
+                        return <Lens key={index} fontSize='xsmall' style={{ color: "#999", margin: "0 5px" }} />
                       } else {
                         return (
                           <RadioButtonUnchecked
+                            key={index}
                             onClick={() => setActivePart(index)}
                             fontSize='xsmall'
                             style={{ cursor: "pointer", color: "#999", margin: "0 5px" }}

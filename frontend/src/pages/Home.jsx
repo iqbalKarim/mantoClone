@@ -1,54 +1,19 @@
 import CustomButton from "@components/CustomButton/CustomButton"
 import CategoriesCarousel from "@components/CategoriesCarousel/CategoriesCarousel"
 import HomeNavbar from "@components/HomeNavbar/HomeNavbar"
-
-import styles from "./Home.module.css"
-import { useEffect, useState } from "react"
-import storage, { getImageFromFirebase, storageRef } from "../../firebaseConfig"
-import { getDownloadURL, listAll } from "firebase/storage"
-import LoadingIndicator from "@components/LoadingIndicator/LoadingIndicator"
 import BestsellerTabs from "@components/BestsellerTabs/BestsellerTabs"
-import { East } from "@mui/icons-material"
-import CategoryCard from "@components/CategoryCard/CategoryCard"
+import HomeCategoryCardsSection from "@sections/HomeCategoryCardsSection/HomeCategoryCardsSection"
 import HighlightsSection from "@sections/HighlightsSection/HighlightsSection"
 import OutfitsSection from "@sections/OutfitsSection/OutfitsSection"
+import LocationSection from "@sections/LocationSection/LocationSection"
+import FooterSection from "@sections/FooterSection/FooterSection"
 
-const cardCategories = [
-  {
-    image: "./cardCategory1.jpeg",
-    name: "Solids for Women",
-    subtitle: "Basic not boring",
-  },
-  {
-    image: "./cardCategory2.jpeg",
-    name: "Scarves stoles and Odhnis",
-    subtitle: "urdu calligraphy designs",
-  },
-  {
-    image: "./cardCategory3.jpeg",
-    name: "lawn collection",
-    subtitle: "Comfort meets luxury",
-  },
-  {
-    image: "./cardCategory4.jpeg",
-    name: "Solids for Men",
-    subtitle: "For every occasion",
-  },
-  {
-    image: "./cardCategory5.jpeg",
-    name: "printed co-ord sets",
-    subtitle: "designs for summers",
-  },
-  {
-    image: "./cardCategory6.jpeg",
-    name: "beuty with her",
-    subtitle: "husn saree",
-  },
-]
+import styles from "./Home.module.css"
+import { East } from "@mui/icons-material"
 
 const Home = () => {
   return (
-    <div style={{ paddingBottom: 50 }}>
+    <div>
       <div className={styles.topNews}>
         Missed out Odhnis? They're back! Browse now! <East style={{ fontSize: "19px", position: "absolute", top: "7px" }} />
       </div>
@@ -79,17 +44,17 @@ const Home = () => {
         <BestsellerTabs />
       </section>
 
-      <section className={styles.categoriesSection}>
-        {cardCategories.map((cat) => (
-          <CategoryCard {...cat} />
-        ))}
-      </section>
+      <HomeCategoryCardsSection />
 
       <HighlightsSection />
 
       <div style={{ margin: "100px 0", background: "#ccc", height: 2 }} />
       <OutfitsSection />
       <div style={{ margin: "100px 0", background: "#ccc", height: 2 }} />
+
+      <LocationSection />
+
+      <FooterSection />
     </div>
   )
 }
