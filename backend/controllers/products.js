@@ -1,5 +1,4 @@
 const Product = require("../models/products")
-const { validationResult } = require("express-validator")
 
 exports.getProducts = (req, res) => {
   //select will specify the fields (columns)
@@ -19,5 +18,14 @@ exports.createProduct = async (req, res) => {
     res.status(201).json({ product })
   } catch (error) {
     res.status(400).json({ error })
+  }
+}
+
+exports.deleteProduct = async (req, res) => {
+  try {
+    let product = await Product.findByIdAndDelete(req.body.id)
+    res.status(200).json({ product })
+  } catch (error) {
+    res.status(400).json({ error: error.message })
   }
 }

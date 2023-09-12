@@ -7,20 +7,6 @@ const sizesSchema = new mongoose.Schema({
 })
 
 const itemsSchema = new mongoose.Schema({
-  title: {
-    type: String,
-    required: true,
-  },
-  categoryIds: [
-    {
-      type: Number,
-      required: true,
-    },
-  ],
-  description: {
-    type: String,
-    requrired: true,
-  },
   color: String,
   price: {
     type: Number,
@@ -31,24 +17,12 @@ const itemsSchema = new mongoose.Schema({
       type: sizesSchema,
     },
   ],
-  material: String,
-  width: Number,
-  length: Number,
-  poetry: String,
-  poet: String,
-  careInstruction: [String],
   images: [
     {
       type: String,
       required: true,
     },
   ],
-  bestSeller: {
-    type: Boolean,
-    default: false,
-  },
-  productType: { type: String, required: true },
-  gender: { type: String, required: true },
   onSale: {
     type: Boolean,
     default: false,

@@ -9,27 +9,29 @@ const productsSchema = new mongoose.Schema({
     type: String,
     require: "Description is required!",
   },
-  price: {
-    type: Number,
-    require: "Price is required!",
-  },
   productType: {
     type: String,
     required: "Product Type is required",
   },
-  category: {
-    type: String,
-  },
-  color: {
-    type: String,
-  },
-  images: {
-    type: [String],
-  },
+  categoryIds: [
+    {
+      type: Number,
+      required: true,
+    },
+  ],
+  gender: { type: String, required: true },
+  material: String,
+  width: Number,
+  length: Number,
+  poetry: String,
+  poet: String,
+  careInstruction: [String],
+  fitInformation: String,
   bestSeller: {
     type: Boolean,
     default: false,
   },
+  items: [String],
 })
 
 module.exports = mongoose.model("Products", productsSchema)
