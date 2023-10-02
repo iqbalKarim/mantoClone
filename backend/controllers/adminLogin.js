@@ -6,7 +6,7 @@ exports.adminLogin = async (req, res) => {
 
   // console.log('datum', req.b)
   try {
-    const user = await AdminUsers.findOne({ username, password })
+    const user = await AdminUsers.findOne({ username, password }).select(["_id", "username"])
     if (!user) {
       res.status(401).json({
         error: "Login not successful: User not found",

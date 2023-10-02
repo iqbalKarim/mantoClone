@@ -3,16 +3,23 @@ import CustomButton from "@components/CustomButton/CustomButton"
 import { Card, TextField } from "@mui/material"
 import { useFormik } from "formik"
 import { useEffect, useState } from "react"
-import { checkerApi, loginAdmin } from "../helpers/backendHelpers"
-import { imageUrlConstructor } from "../helpers/imageUrlConstructor"
-import styles from "./AdminLogin.module.css"
+import { useDispatch } from "react-redux"
 import { toast } from "react-toastify"
+import { checkerApi, loginAdmin } from "@helpers/backendHelpers"
+import { imageUrlConstructor } from "@helpers/imageUrlConstructor"
+import { login } from "../store/userSlice"
+import styles from "./AdminLogin.module.css"
+import { useNavigate } from "react-router-dom"
 
 const AdminLogin = () => {
   const [register, setRegister] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const [image, setImage] = useState(null)
+
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
   useEffect(() => {
     if (!image) {
       setIsLoading(true)
@@ -21,6 +28,20 @@ const AdminLogin = () => {
         .finally(() => setIsLoading(false))
     }
   }, [])
+
+  const loginHandler = (username, password) => {
+    setSubmitting(true)
+    loginAdmin({ username, password })
+      .then((res) => {
+        dispatch(login(res.user))
+        toast.success(res.message)
+        navigate("home")
+      })
+      .catch((err) => {
+        toast.error(err.message)
+      })
+      .finally(() => setSubmitting(false))
+  }
 
   const formik = useFormik({
     initialValues: {
@@ -34,19 +55,7 @@ const AdminLogin = () => {
       if (register) {
         alert("register")
       } else {
-        setSubmitting(true)
-        loginAdmin({
-          username: values.username,
-          password: values.password,
-        })
-          .then((res) => {
-            console.log("login", res)
-            toast.success(res.message)
-          })
-          .catch((err) => {
-            toast.error(err.message)
-          })
-          .finally(() => setSubmitting(false))
+        loginHandler(values.username, values.password)
       }
     },
   })

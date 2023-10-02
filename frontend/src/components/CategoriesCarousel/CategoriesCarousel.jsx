@@ -1,10 +1,8 @@
-import { useEffect, useState } from "react"
-import useEmblaCarousel from "embla-carousel-react"
-import styles from "./CategoriesCarousel.module.css"
-import Slider from "react-slick"
-import { imageUrlConstructor } from "../../helpers/imageUrlConstructor"
-import { getImageFromFirebase } from "../../../firebaseConfig"
 import LoadingIndicator from "@components/LoadingIndicator/LoadingIndicator"
+import { imageUrlConstructor } from "@helpers/imageUrlConstructor"
+import { useEffect, useState } from "react"
+import Slider from "react-slick"
+import styles from "./CategoriesCarousel.module.css"
 
 const slidesInfo = [
   { image: "./cat8.jpeg", name: "Scarves, Stoles & Odhnis" },
