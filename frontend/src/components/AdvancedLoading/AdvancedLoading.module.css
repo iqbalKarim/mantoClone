@@ -1,0 +1,27 @@
+.container{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 999;
+}
+
+@keyframes circle {
+    from {
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+.loadingDasherParent{
+    position: absolute;
+	width: 200px;
+	height: 200px;
+	border: 1px solid rgba(0,0,0,0.1);
+    border-top-color: black ;
+	border-radius: 50%;
+    animation: circle 1s linear 0s infinite;
+}

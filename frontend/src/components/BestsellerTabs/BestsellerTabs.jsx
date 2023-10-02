@@ -205,7 +205,7 @@ const BestsellerTabs = () => {
           </LoadingIndicator>
         </div>
       </div>
-      <CustomButton type='secondary'>View all products</CustomButton>
+      <CustomButton variant='secondary'>View all products</CustomButton>
     </>
   )
 }

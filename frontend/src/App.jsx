@@ -1,15 +1,52 @@
-import { useState } from "react"
-import reactLogo from "./assets/react.svg"
-import viteLogo from "/vite.svg"
+import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom"
+import { Flip, ToastContainer } from "react-toastify"
 import "./App.css"
+
+import AdminLogin from "@pages/AdminLogin"
 import Home from "@pages/Home"
 
-function App() {
-  const [count, setCount] = useState(0)
+const router = createBrowserRouter([
+  {
+    path: "/home",
+    element: <Home />,
+  },
+  {
+    path: "/admin",
+    // element: <Navigate to='login' />,
+    children: [
+      {
+        path: "",
+        element: <AdminLogin />,
+      },
+      {
+        path: "home",
+        element: <div>Admin Home</div>,
+      },
+    ],
+  },
+  {
+    path: "*",
+    element: <Navigate to='/home' />,
+  },
+])
 
+function App() {
   return (
     <>
-      <Home />
+      <RouterProvider router={router} />
+      <ToastContainer
+        position='top-center'
+        transition={Flip}
+        autoClose={2000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        // pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme='light'
+      />
     </>
   )
 }

@@ -1,9 +1,12 @@
 import styles from "./CustomButton.module.css"
 
-const CustomButton = ({ classname, type = "primary", children, ...rest }) => {
+const CustomButton = ({ classname, variant = "primary", children, ...rest }) => {
   return (
     <div style={{ zIndex: 5, position: "relative" }}>
-      <button className={`${styles.buttonBase} ${type == "primary" ? styles.primaryButton : styles.secondaryButton}`} {...rest}>
+      <button
+        className={`${styles.buttonBase} ${variant == "primary" ? styles.primaryButton : styles.secondaryButton}`}
+        {...rest}
+      >
         {children}
       </button>
     </div>

@@ -1,0 +1,132 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: #283739;
+    transition: all 0.3s;
+}
+
+.card{
+    height: 500px;
+    width: 70%;
+    display: flex;
+
+}
+.hero{
+    background-position: center center;
+    background-size: cover;
+}
+.card > div{
+    flex: 1 1 0px;
+    padding: 15px
+}
+
+.input{
+    width: 100%;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+.form img {
+    margin: 0 auto;
+}
+.form h2{
+    font-weight: 500;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.registerButton{
+    text-transform: uppercase;
+    margin-top: 10px;
+    font-size: 10px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    font-weight: 500;
+    transform-origin: 0;
+}
+.registerButton:hover{
+    letter-spacing: 2px;
+    transform: scale(1.1);
+}
+
+.formsContainer{
+    height: 170px;
+    position: relative;
+
+}
+
+.loginForm, .registerForm{
+    height: 170px;
+    position: absolute;
+    padding: 0 5px 5px 5px;
+    background-color: white;
+    border-radius: 3px;
+}
+.show{
+    animation: slideIn 0.7s ease-in-out 0s 1 normal forwards;
+}
+
+.hide{
+    animation: slideAway 0.7s ease-in-out 0s 1 normal forwards;
+}
+
+@keyframes slideAway {
+    0%{ 
+        z-index: 1;
+        transform: translateY(0px); 
+    }
+    10%{ transform: translateY(50px);}
+    20%{ transform: translateY(100px);}
+    30%{transform: translateY(130px);}
+    40%{transform: translateY(150px);}
+    50%{
+        z-index: 0;
+        transform: translateY(160px);
+    }
+    60%{transform: translateY(150px);}
+    70%{transform: translateY(130px);}
+    80%{transform: translateY(100px);}
+    90%{transform: translateY(50px);}
+    100%{
+        transform: translateY(0px);
+        box-shadow: 0px 0px 71px 15px rgba(114,111,111,0.25) inset;
+        -webkit-box-shadow: 0px 0px 71px 15px rgba(114,111,111,0.25) inset;
+        -moz-box-shadow: 0px 0px 71px 15px rgba(114,111,111,0.25) inset;
+    }
+}
+
+@keyframes slideIn {
+    0%{
+        transform: translateY(0px);
+        box-shadow: 0px 0px 71px 15px rgba(114,111,111,0.25) inset;
+        -webkit-box-shadow: 0px 0px 71px 15px rgba(114,111,111,0.25) inset;
+        -moz-box-shadow: 0px 0px 71px 15px rgba(114,111,111,0.25) inset;
+        z-index: 0;
+    }
+    50%{
+        transform: translateY(-50px);
+        z-index: 1;
+    }
+    100%{
+        transform: translateY(0px);
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        z-index: 1;
+    }
+}
+
+.formLoader{
+    position: absolute;
+    left: 0;
+    backdrop-filter: blur(10px);
+    height: 100%;
+    z-index: 5;
+    width: 100%;
+}

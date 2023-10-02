@@ -14,7 +14,7 @@ const LocationSection = () => {
         <p>Book An Appointment With Us To Learn More About Our Products & Let Us Help You Pick A Style At The Studio!</p>
 
         <p>Contact Us On +923481262686</p>
-        <CustomButton type='secondary'>Get Directions</CustomButton>
+        <CustomButton variant='secondary'>Get Directions</CustomButton>
       </div>
     </div>
   )

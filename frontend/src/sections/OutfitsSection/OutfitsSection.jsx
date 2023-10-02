@@ -114,7 +114,7 @@ const OutfitsSection = () => {
                   <div className={styles.button}>
                     <CustomButton
                       onClick={() => console.log(outfit.parts[activePart])}
-                      type='secondary'
+                      variant='secondary'
                       style={{ marginBottom: "10px" }}
                     >
                       View this product

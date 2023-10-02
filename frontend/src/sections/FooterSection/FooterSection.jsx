@@ -39,7 +39,7 @@ const FooterSection = () => {
           and stay updated on our Manto stories featuring some of Pakistan's most inspirational personalities!
         </p>
         <input type='email' placeholder='Enter your email address' />
-        <CustomButton style={{ marginTop: 10 }} type='secondary'>
+        <CustomButton style={{ marginTop: 10 }} variant='secondary'>
           Subscribe
         </CustomButton>
       </div>
